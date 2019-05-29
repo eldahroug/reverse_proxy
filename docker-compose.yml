@@ -1,0 +1,20 @@
+version: "3"
+services:
+
+  Java-app1:
+    image: eldahroug/java-app1
+    ports:
+      - "8888:8080"
+    container_name: java-app1 
+
+  Java-app2:
+    image: eldahroug/java-app2
+    ports:
+      - "9999:8080"
+    container_name: java-app2
+
+  reverse-proxy:
+    build: ./nginx-container-reverse-proxy
+    ports:
+      - "81:80"
+    container_name: reverse-proxy
